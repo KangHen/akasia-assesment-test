@@ -40,4 +40,14 @@ export class StorageService {
 
     return localStorage.setItem(name, parsing)
   }
+
+  /**
+   * Remove data from Local Storage
+   * 
+   * @param name 
+   * @returns
+   */
+  remove(name: string) {
+    return localStorage.removeItem(name)
+  }
 }

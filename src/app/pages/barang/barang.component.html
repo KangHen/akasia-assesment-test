@@ -1,6 +1,6 @@
 <app-nav [loading]="loading"></app-nav>
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
     <div class="row">
         <div class="d-flex justify-content-between col-12 mb-2">
             <h2>Barang</h2> <button class="btn btn-primary" (click)="openModal()">Buat Baru</button>
@@ -13,7 +13,7 @@
                         <th class="p-3">Nama Barang</th>
                         <th class="p-3">Supplier</th>
                         <th class="p-3">Harga</th>
-                        <th class="p-3">Satuan</th>
+                        <th class="p-3 text-center">Satuan</th>
                         <th class="p-3">QTY</th>
                         <th class="p-3">#</th>
                     </thead>
@@ -23,8 +23,8 @@
                             <td>{{ product.name }}</td>
                             <td>{{ getSupplier(product.supplier) }}</td>
                             <td class="text-end">{{ product.price }}</td>
-                            <td>{{ product.unit }}</td>
-                            <td>{{ product.stock }}</td>
+                            <td class="text-center">{{ product.unit }}</td>
+                            <td class="text-end">{{ product.stock }}</td>
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <button type="button" (click)="edit(product.id)" class="btn btn-outline-primary">Edit</button>

@@ -16,9 +16,12 @@
             <a class="nav-link" aria-current="page"  [routerLink]="[ '/trx']">Transaksi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page"  [routerLink]="[ '/']">Logout</a>
+            <a class="nav-link" aria-current="page"  (click)="logout()">Logout</a>
           </li>
         </ul>
+        <div class="d-flex" role="search">
+          Halo, Login sebagai : <strong> {{ user.name }} </strong>
+        </div>
       </div>
     </div>
 </nav>

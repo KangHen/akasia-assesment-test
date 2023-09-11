@@ -4,12 +4,13 @@ import { LoginComponent } from './login/login.component';
 import { BarangComponent } from './pages/barang/barang.component';
 import { SupplierComponent } from './pages/supplier/supplier.component';
 import { TransaksiComponent } from './pages/transaksi/transaksi.component';
+import { authGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'barang', component: BarangComponent },
-  { path: 'supplier', component: SupplierComponent },
-  { path: 'trx', component: TransaksiComponent },
+  { path: 'barang', component: BarangComponent, canActivate: [authGuard] },
+  { path: 'supplier', component: SupplierComponent, canActivate: [authGuard] },
+  { path: 'trx', component: TransaksiComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({
