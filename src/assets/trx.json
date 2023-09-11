@@ -1,0 +1,38 @@
+[
+    {
+        "code":"1694457097597",
+        "pelanggan":"Hendri",
+        "qty":5,
+        "name":"Beras",
+        "price":127000,
+        "total":635000,
+        "created_at":"02/09/2023"
+    },
+    {
+        "code":"1694457109928",
+        "pelanggan":"Tari",
+        "qty":10,
+        "name":"Sabun",
+        "price":5000,
+        "total":50000,
+        "created_at":"02/09/2023"
+    },
+    {
+        "code":"1694457123530",
+        "pelanggan":"Uta",
+        "qty":10,
+        "name":"Pasta Gigi",
+        "price":4000,
+        "total":40000,
+        "created_at":"02/09/2023"
+    },
+    {
+        "code":"1694457143464",
+        "pelanggan":"Umay",
+        "qty":10,
+        "name":"Gula Pasir",
+        "price":11000,
+        "total":110000,
+        "created_at":"02/09/2023"
+    }
+]

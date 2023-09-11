@@ -1,13 +1,13 @@
-<app-nav></app-nav>
+<app-nav [loading]="loading"></app-nav>
 
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-12">
             <div class="col-12">
                 <div class="card">
-                    <table class="table table-bordered table-striped">
+                    <table class="table table-bordered table-striped mb-0">
                         <thead>
-                            <th class="p-3">No</th>
+                            <th class="p-3 text-center">No</th>
                             <th class="p-3">Kode Trx</th>
                             <th class="p-3">Pelanggan</th>
                             <th class="p-3">Tanggal Trx</th>
@@ -15,7 +15,16 @@
                             <th class="p-3">#</th>
                         </thead>
                         <tbody>
-                
+                            <tr *ngFor="let trx of transactions; let i= index">
+                                <td class="text-center">{{ i+1 }}</td>
+                                <td>{{ trx.code }}</td>
+                                <td>{{ trx.pelanggan }}</td>
+                                <td>{{ trx.created_at }}</td>
+                                <td class="text-end">{{ trx.total }}</td>
+                                <td>
+                                    <button class="btn btn-outline-danger" (click)="destroy(trx.id)">Delete</button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -26,30 +35,36 @@
                 <div class="card-header">
                     <h2>Transaksi Baru</h2>
                 </div>
+                <div class="col-12 bg-primary py-3 px-2">
+                    <h3 class="text-white">Total : {{ total }}</h3>
+                </div>
                 <div class="card-body">
                     <form novalidate [formGroup]="form" (ngSubmit)="submit()">
                         <div class="mb-2">
                             <label class="form-label">Kode Trx</label>
-                            <input type="text" formControlName="code" class="form-control form-control-lg">
+                            <input type="text" formControlName="code" class="form-control form-control-lg" readonly>
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Nama Pelanggan</label>
                             <input type="text" formControlName="pelanggan" class="form-control">
                         </div>
-                        <div class="mb-2">
-                            <label class="form-label">Barang</label>
-                            <input type="text" formControlName="nama_barang" class="form-control">
+                        <div>
+                            <label class="form-label">Nama Barang</label>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" formControlName="name" class="form-control" placeholder="Nama Barang" aria-describedby="button-addon2" readonly>
+                            <button (click)="openModal()" class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Harga</label>
-                            <input type="text" formControlName="harga" class="form-control" readonly>
+                            <input type="text" formControlName="price" class="form-control" readonly>
                         </div>
-                        <div class="mb-2">
+                        <div class="mb-4">
                             <label class="form-label">QTY</label>
-                            <input type="number" formControlName="qty" class="form-control" >
+                            <input type="number" formControlName="qty" class="form-control" min="1" (keyup)="validateQTY($event)">
                         </div>
                         <div class="mb-2">
-                            <button  class="btn btn-primary btn-lg">Buat Traksaksi</button>
+                            <button  class="btn btn-primary btn-lg w-100">Buat Traksaksi</button>
                         </div>
                     </form>
                 </div>
@@ -57,3 +72,37 @@
         </div>
     </div>
 </div>
+
+<div class="modal" [ngStyle]="modalDisplay">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Daftar Barang</h5>
+          <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <th class="p-3">Nama Barang</th>
+                    <th class="p-3">Harga</th>
+                    <th class="p-3">Stock</th>
+                    <th class="p-3">#</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products; let i=index">
+                        <td>{{ product.name }}</td>
+                        <td class="text-end">{{ product.price }}</td>
+                        <td class="text-end">{{ product.stock }}</td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" (click)="choosen(product)" class="btn btn-outline-primary">Pilih</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade" [ngStyle]="backdropDisplay"></div>
