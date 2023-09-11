@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "Beras",
+        "unit": "pcs",
+        "stock": 100,
+        "price": 127000,
+        "category": "groceries",
+        "supplier": 1
+    },
+    {
+        "id": 2,
+        "name": "Kopi",
+        "unit": "pcs",
+        "stock": 85,
+        "price": 9000,
+        "category": "groceries",
+        "supplier": 1
+    },
+    {
+        "id": 3,
+        "name": "Gula Pasir",
+        "unit": "pcs",
+        "stock": 100,
+        "price": 11000,
+        "category": "groceries",
+        "supplier": 1
+    },
+    {
+        "id": 4,
+        "name": "Sabun",
+        "unit": "pcs",
+        "stock": 100,
+        "price": 5000,
+        "category": "groceries",
+        "supplier": 1
+    },
+    {
+        "id": 5,
+        "code": "1005",
+        "name": "Shampo",
+        "unit": "pcs",
+        "stock": 100,
+        "price": 5000,
+        "category": "groceries",
+        "supplier": 2
+    },
+    {
+        "id": 6,
+        "code": "1006",
+        "name": "Pasta Gigi",
+        "unit": "pcs",
+        "stock": 100,
+        "price": 4000,
+        "category": "groceries",
+        "supplier": 2
+    },
+    {
+        "id": 7,
+        "code": "1007",
+        "name": "Sikat Gigi",
+        "unit": "pcs",
+        "stock": 100,
+        "price": 3500,
+        "category": "groceries",
+        "supplier": 2
+    },
+    {
+        "id": 8,
+        "code": "1008",
+        "name": "Gula Merah",
+        "unit": "pcs",
+        "stock": 100,
+        "price": 7000,
+        "category": "groceries",
+        "supplier": 2
+    },
+    {
+        "id": 9,
+        "code": "1009",
+        "name": "Sunlight",
+        "unit": "pcs",
+        "stock": 100,
+        "price": 1000,
+        "category": "groceries",
+        "supplier": 2
+    },
+    {
+        "id": 10,
+        "code": "1010",
+        "name": "Marina Handbody Lotion",
+        "unit": "pcs",
+        "stock": 100,
+        "price": 8000,
+        "category": "groceries",
+        "supplier": 2
+    }
+]

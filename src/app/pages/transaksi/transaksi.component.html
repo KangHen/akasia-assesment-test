@@ -1,0 +1,59 @@
+<app-nav></app-nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 col-12">
+            <div class="col-12">
+                <div class="card">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <th class="p-3">No</th>
+                            <th class="p-3">Kode Trx</th>
+                            <th class="p-3">Pelanggan</th>
+                            <th class="p-3">Tanggal Trx</th>
+                            <th class="p-3">Total</th>
+                            <th class="p-3">#</th>
+                        </thead>
+                        <tbody>
+                
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12">
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h2>Transaksi Baru</h2>
+                </div>
+                <div class="card-body">
+                    <form novalidate [formGroup]="form" (ngSubmit)="submit()">
+                        <div class="mb-2">
+                            <label class="form-label">Kode Trx</label>
+                            <input type="text" formControlName="code" class="form-control form-control-lg">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Nama Pelanggan</label>
+                            <input type="text" formControlName="pelanggan" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Barang</label>
+                            <input type="text" formControlName="nama_barang" class="form-control">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Harga</label>
+                            <input type="text" formControlName="harga" class="form-control" readonly>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">QTY</label>
+                            <input type="number" formControlName="qty" class="form-control" >
+                        </div>
+                        <div class="mb-2">
+                            <button  class="btn btn-primary btn-lg">Buat Traksaksi</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
