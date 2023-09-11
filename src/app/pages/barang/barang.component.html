@@ -1,13 +1,13 @@
-<app-nav></app-nav>
+<app-nav [loading]="loading"></app-nav>
 
-<div class="container">
+<div class="container mt-5">
     <div class="row">
-        <div class="col-12 mb-2">
-            <button class="btn btn-primary">Buat Baru</button>
+        <div class="d-flex justify-content-between col-12 mb-2">
+            <h2>Barang</h2> <button class="btn btn-primary" (click)="openModal()">Buat Baru</button>
         </div>
         <div class="col-12">
             <div class="card">
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped mb-0">
                     <thead>
                         <th class="p-3">No</th>
                         <th class="p-3">Nama Barang</th>
@@ -18,10 +18,72 @@
                         <th class="p-3">#</th>
                     </thead>
                     <tbody>
-            
+                        <tr *ngFor="let product of products; let i=index">
+                            <td>{{ i+1 }}</td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ getSupplier(product.supplier) }}</td>
+                            <td class="text-end">{{ product.price }}</td>
+                            <td>{{ product.unit }}</td>
+                            <td>{{ product.stock }}</td>
+                            <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button type="button" (click)="edit(product.id)" class="btn btn-outline-primary">Edit</button>
+                                    <button type="button" (click)="destroy(product.id)" class="btn btn-outline-danger">Hapus</button>
+                                </div>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal" [ngStyle]="modalDisplay">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tambah Barang</h5>
+          <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="form">
+            <div class="mb-2">
+                <label class="form-label">Nama</label>
+                <input type="text" formControlName="name" class="form-control" placeholder="Nama Barang">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Kategory</label>
+                <select formControlName="category" class="form-select">
+                    <option value="groceries">Bahan Pokok</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Unit</label>
+                <select formControlName="unit" class="form-select">
+                    <option value="pcs">PCS</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Harga</label>
+                <input type="number" formControlName="price" class="form-control" placeholder="Harga Barang">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Stok</label>
+                <input type="number" formControlName="stock" class="form-control" placeholder="Stok">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Supplier</label>
+                <select formControlName="supplier" class="form-select">
+                    <option *ngFor="let supplier of suppliers" value="{{ supplier.id }}">{{ supplier.name }}</option>
+                </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="save()">Simpan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade" [ngStyle]="backdropDisplay"></div>
